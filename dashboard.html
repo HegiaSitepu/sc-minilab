@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Perpustakaan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>📚 MiniLib</h2>
+        <a href="#dashboard" class="active" onclick="tampilkanHalaman('dashboard')">🏠 Dashboard</a>
+        <a href="#manajemen" onclick="tampilkanHalaman('manajemen')">📖 Manajemen Buku</a>
+        <a href="#peminjaman" onclick="tampilkanHalaman('peminjaman')">📌 Peminjaman</a>
+        <a href="#pengembalian" onclick="tampilkanHalaman('pengembalian')">🔄 Pengembalian</a>
+        <a href="#logout" class="logout">🚪 Logout</a>
+    </div>
+
+    <!-- Konten -->
+    <div class="content">
+        <!-- Dashboard -->
+        <div id="dashboard">
+            <h1>📊 Dashboard Buku</h1>
+            <div class="stats">
+                <div class="stat-box">📚 Total Buku: <span id="totalBuku">0</span></div>
+                <div class="stat-box">📌 Buku Dipinjam: <span id="bukuDipinjam">0</span></div>
+                <div class="stat-box">✅ Buku Tersedia: <span id="bukuTersedia">0</span></div>
+            </div>
+            <h2>📖 Daftar Buku</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Penulis</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelBuku">
+                    <!-- Data buku akan ditampilkan dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Manajemen Buku -->
+        <div id="manajemen" class="hidden">
+            <h1>📖 Manajemen Buku</h1>
+            <form id="formBuku">
+                <input type="text" id="judul" placeholder="Judul Buku" required>
+                <input type="text" id="penulis" placeholder="Penulis" required>
+                <select id="status">
+                    <option value="Tersedia">Tersedia</option>
+                    <option value="Dipinjam">Dipinjam</option>
+                </select>
+                <button type="submit">Tambah Buku</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Penulis</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelManajemen">
+                    <!-- Data Buku akan ditampilkan dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Peminjaman Buku -->
+        <div id="peminjaman" class="hidden">
+            <h1>📌 Peminjaman Buku</h1>
+            <form id="formPeminjaman">
+                <input type="text" id="namaPeminjam" placeholder="Nama Peminjam" required>
+                <input type="text" id="judulPinjam" placeholder="Judul Buku" required>
+                <button type="submit">Pinjam Buku</button>
+            </form>
+            <h2>📋 Daftar Peminjaman</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Peminjam</th>
+                        <th>Judul Buku</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelPeminjaman"></tbody>
+            </table>
+        </div>
+
+        <!-- Pengembalian Buku -->
+        <div id="pengembalian" class="hidden">
+            <h1>🔄 Pengembalian Buku</h1>
+            <form id="formPengembalian">
+                <input type="text" id="judulKembali" placeholder="Judul Buku" required>
+                <button type="submit">Kembalikan Buku</button>
+            </form>
+            <h2>📌 Daftar Pengembalian</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Judul Buku</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelPengembalian"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
